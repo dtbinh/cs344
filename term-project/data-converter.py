@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import io
 
-def convert_data(file_name):
+def convert_data(file_name, dest_name):
     fp = open(file_name, "r")
     modified_csv = ""
     
@@ -14,9 +14,9 @@ def convert_data(file_name):
         elif row_modified[0] == "2":
             modified_csv += "0,1,"
         elif row_modified[0] == "3":
-            modified_csv += "0,1,"
+            modified_csv += "1,0,"
         elif row_modified[0] == "4":
-            modified_csv += "0,1,"
+            modified_csv += "1,1,"
         else:
             modified_csv += "ERROR,ERROR,"
 
@@ -56,9 +56,9 @@ def convert_data(file_name):
         elif row_modified[2] == "2":
             modified_csv += "0,1,"
         elif row_modified[2] == "3":
-            modified_csv += "0,1,"
+            modified_csv += "1,0,"
         elif row_modified[2] == "4":
-            modified_csv += "0,1,"
+            modified_csv += "1,1,"
         else:
             modified_csv += "ERROR,ERROR,"
 
@@ -98,9 +98,9 @@ def convert_data(file_name):
         elif row_modified[4] == "2":
             modified_csv += "0,1,"
         elif row_modified[4] == "3":
-            modified_csv += "0,1,"
+            modified_csv += "1,0,"
         elif row_modified[4] == "4":
-            modified_csv += "0,1,"
+            modified_csv += "1,1,"
         else:
             modified_csv += "ERROR,ERROR,"
 
@@ -140,9 +140,9 @@ def convert_data(file_name):
         elif row_modified[6] == "2":
             modified_csv += "0,1,"
         elif row_modified[6] == "3":
-            modified_csv += "0,1,"
+            modified_csv += "1,0,"
         elif row_modified[6] == "4":
-            modified_csv += "0,1,"
+            modified_csv += "1,1,"
         else:
             modified_csv += "ERROR,ERROR,"
 
@@ -182,9 +182,9 @@ def convert_data(file_name):
         elif row_modified[8] == "2":
             modified_csv += "0,1,"
         elif row_modified[8] == "3":
-            modified_csv += "0,1,"
+            modified_csv += "1,0,"
         elif row_modified[8] == "4":
-            modified_csv += "0,1,"
+            modified_csv += "1,1,"
         else:
             modified_csv += "ERROR,ERROR,"
 
@@ -242,12 +242,12 @@ def convert_data(file_name):
         else:
             modified_csv += "ERROR,ERROR,ERROR,ERROR\r\n"
     
-    fn = open(file_name.replace(".data","-modified.data"), "w+")
+    fn = open(dest_name, "w+")
     fn.write(modified_csv)
 
     fp.close()
     fn.close()
 
 if __name__ == "__main__":
-    convert_data("poker-hand-testing.data")
-    convert_data("poker-hand-training-true.data")
+    convert_data("poker-hand-testing.data", "testing.csv")
+    convert_data("poker-hand-training-true.data", "training.csv")
