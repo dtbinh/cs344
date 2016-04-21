@@ -1,3 +1,5 @@
+install.packages("neuralnet_1.32.tar.gz", lib='~/R/Rpackages/',repos = NULL)
+
 setwd("~/cs344/term-project")
 set.seed(1234567890)
 
